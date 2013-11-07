@@ -20,7 +20,7 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(name = "AgentePastoralDizimo.logar", query = "SELECT apd FROM AgentePastoralDizimo apd WHERE apd.login LIKE :login AND apd.senha LIKE :senha")
 })
-public class AgentePastoralDizimo extends Pessoa{
+public class AgentePastoralDizimo extends Pessoa implements Usuario{
     private static final String tipo = "AgentePastoralDizimo";
     @Column(nullable = false, unique = true)
     private String login;
@@ -57,6 +57,11 @@ public class AgentePastoralDizimo extends Pessoa{
 
     public void setDizimos(List<Dizimo> dizimos) {
         this.dizimos = dizimos;
+    }
+
+    @Override
+    public String tipo() {
+       return "Agente";
     }
     
     

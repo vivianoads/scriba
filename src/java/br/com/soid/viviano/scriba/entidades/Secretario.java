@@ -9,6 +9,8 @@ package br.com.soid.viviano.scriba.entidades;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -16,7 +18,10 @@ import javax.persistence.OneToMany;
  * @author viviano
  */
 @Entity
-public class Secretario extends Pessoa{
+@NamedQueries({
+    @NamedQuery(name = "Secretario.logar", query = "SELECT sec FROM Secretario sec WHERE sec.login LIKE :login AND sec.senha LIKE :senha")
+})
+public class Secretario extends Pessoa implements Usuario{
     private static final String tipo = "filho";
     
     @Column(nullable = false, unique = true)
@@ -55,6 +60,11 @@ public class Secretario extends Pessoa{
 
     public void setDizimos(List<Dizimo> dizimos) {
         this.dizimos = dizimos;
+    }
+
+    @Override
+    public String tipo() {
+        return "Secretario";
     }
     
     
