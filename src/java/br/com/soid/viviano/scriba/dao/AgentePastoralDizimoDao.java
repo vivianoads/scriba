@@ -44,4 +44,18 @@ public class AgentePastoralDizimoDao {
         }
         return agentePastoralDizimo;
     }
+    
+    public AgentePastoralDizimo buscaAgentePastoralDizimo(Long id){
+        
+        AgentePastoralDizimo agentePastoralDizimo = new AgentePastoralDizimo();
+        
+//        entityManager.getTransaction().begin();
+        
+        
+        agentePastoralDizimo = entityManager.find(AgentePastoralDizimo.class, id);
+        
+        return agentePastoralDizimo;
+        
+        
+    }
 }

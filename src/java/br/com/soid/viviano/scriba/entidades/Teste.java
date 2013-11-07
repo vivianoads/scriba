@@ -164,7 +164,9 @@ public class Teste {
         
 //        apddao.Gravar(agentePastoralDizimo);
         
-        System.out.println(apddao.logaAgentePastoralDizimo("julieth", "123").getLogin());
+//        System.out.println(apddao.logaAgentePastoralDizimo("julieth", "123").getLogin());
+        
+        System.out.println(apddao.buscaAgentePastoralDizimo(701l).getLogin());
         
         System.out.println("finalizado com a graça de Deus.");
     }
