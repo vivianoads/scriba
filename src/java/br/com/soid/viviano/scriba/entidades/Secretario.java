@@ -22,7 +22,7 @@ import javax.persistence.OneToMany;
     @NamedQuery(name = "Secretario.logar", query = "SELECT sec FROM Secretario sec WHERE sec.login LIKE :login AND sec.senha LIKE :senha")
 })
 public class Secretario extends Pessoa implements Usuario{
-    private static final String tipo = "filho";
+    private static final String tipo = "secretario";
     
     @Column(nullable = false, unique = true)
     private String login;
