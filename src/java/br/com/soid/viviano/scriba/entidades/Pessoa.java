@@ -7,6 +7,7 @@
 package br.com.soid.viviano.scriba.entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -18,6 +19,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -34,7 +36,8 @@ public class Pessoa implements Serializable {
     private Long id;
     
     private String nome;
-    private String dataNascimento;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataNascimento;
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     private String estadoCivil;
@@ -58,11 +61,11 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

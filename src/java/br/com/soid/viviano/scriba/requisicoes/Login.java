@@ -6,9 +6,8 @@
 
 package br.com.soid.viviano.scriba.requisicoes;
 
-import br.com.soid.viviano.scriba.dao.AgentePastoralDizimoDao;
 import br.com.soid.viviano.scriba.dao.SecretarioDao;
-import br.com.soid.viviano.scriba.entidades.Usuario;
+import br.com.soid.viviano.scriba.entidades.Secretario;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -22,17 +21,18 @@ public class Login implements IRequisicao{
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String retorno = new String();
-        Usuario u = null;
+        Secretario u = null;
         
-        AgentePastoralDizimoDao apdd = new AgentePastoralDizimoDao();
         SecretarioDao sd = new SecretarioDao();
         
-        u = apdd.logaAgentePastoralDizimo(login, senha);
-        if(u == null){
-            u = sd.logar(login, senha);
+        u = sd.logar(login, senha);
+        
+        if(u == null){ 
+            retorno = "";
+        }else{
+            request.getSession().setAttribute("usuario_logado", u);
+            retorno = "secretario.html";
         }
-        if(u == null) retorno = "";
-        else retorno = u.tipo() + ".html";
         
         return retorno;
     }

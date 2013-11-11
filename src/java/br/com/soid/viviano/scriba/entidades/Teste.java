@@ -6,11 +6,17 @@
 
 package br.com.soid.viviano.scriba.entidades;
 
-import br.com.soid.viviano.scriba.dao.AgentePastoralDizimoDao;
+import br.com.soid.viviano.scriba.conexao.Conexao;
+import br.com.soid.viviano.scriba.dao.DizimistaDao;
+import br.com.soid.viviano.scriba.dao.ParoquiaDao;
+import br.com.soid.viviano.scriba.dao.SecretarioDao;
+import br.com.soid.viviano.scriba.requisicoes.CadastraDizimista;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,6 +26,14 @@ import javax.persistence.Persistence;
  * @author viviano
  */
 public class Teste {
+    
+     public Date formataData(String texto){
+        String[] vetor = texto.split("/");
+        Calendar c = Calendar.getInstance();
+        c.set(Integer.parseInt(vetor[0]), Integer.parseInt(vetor[2]), Integer.parseInt(vetor[1]));
+        return c.getTime();
+    }
+    
     public static void main(String[] args) {
 //        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Scriba_2.0-PU");
 //        EntityManager manager = factory.createEntityManager();
@@ -160,14 +174,167 @@ public class Teste {
 //        manager.persist(dizimista2);
 //        manager.getTransaction().commit();
         
-        AgentePastoralDizimoDao apddao = new AgentePastoralDizimoDao();
+//        AgentePastoralDizimoDao apddao = new AgentePastoralDizimoDao();
         
 //        apddao.Gravar(agentePastoralDizimo);
         
 //        System.out.println(apddao.logaAgentePastoralDizimo("julieth", "123").getLogin());
         
-        System.out.println(apddao.buscaAgentePastoralDizimo(701l).getLogin());
+//        System.out.println(apddao.buscaAgentePastoralDizimo(701l).getLogin());
+//        Calendar c = Calendar.getInstance();
+//        c.set(1992, Calendar.DECEMBER, 17);
+//        Date d = c.getTime();
+//        System.out.println(Calendar.JANUARY+1);
+//        System.out.println(d);
+        
+//        Secretario s = new Secretario();
+//        s.setComunidade("centro");
+//        s.setDataNascimento(new Date());
+//        s.setEmail("email");
+//        s.setEndereco(new Endereco());
+//        s.setEstadoCivil("solteiro");
+//        s.setLogin("julieth");
+//        s.setNome("julieth monteiro");
+//        s.setSenha("123");
+//        s.setTelefone("123456");
+//        s.setTipo("secretario");
+//        
+//        Paroquia p = new Paroquia();
+//        p.setDiocese("cajazeiras");
+//        
+//        Endereco e = new Endereco();
+//        e.setBairro("Centro");
+//        e.setCep("58840000");
+//        e.setCidade("Pombal");
+//        
+//        p.setEndereco(e);
+//        p.setFundacao(new Date());
+//        p.setNome("Paróquia Nossa Senhora do Bom Sucesso");
+//        p.setPadroeiro("Nossa Senhora do Bom Sucesso");
+//        
+//        EntityManager em = Conexao.manager;
+//        em.getTransaction().begin();
+//        em.persist(e);
+//        em.persist(p);
+//        em.getTransaction().commit();
+        
+//        Secretario s = new Secretario();
+//        s.setComunidade("centro");
+//        s.setDataNascimento(new Date());
+//        s.setEmail("email");
+//        s.setEndereco(new Endereco());
+//        s.setEstadoCivil("solteiro");
+//        s.setLogin("julieth");
+//        s.setNome("julieth monteiro");
+//        s.setSenha("123");
+//        s.setTelefone("123456");
+//        s.setTipo("secretario");
+//        
+//        Paroquia p = new Paroquia();
+//        p.setDiocese("cajazeiras");
+//        
+//        Endereco e = new Endereco();
+//        e.setBairro("Centro");
+//        e.setCep("58840000");
+//        e.setCidade("Pombal");
+//        
+//        p.setEndereco(e);
+//        p.setFundacao(new Date());
+//        p.setNome("Paróquia Nossa Senhora do Bom Sucesso");
+//        p.setPadroeiro("Nossa Senhora do Bom Sucesso");
+//        
+//        EntityManager em = Conexao.manager;
+//        em.getTransaction().begin();
+//        em.persist(s);
+//        em.persist(e);
+//        em.persist(p);
+//        em.getTransaction().commit();
+        
+        
+        
+//        String retorno = new String();
+//        
+//        String dataCasamento = "18/12/1991";
+//        String dataNascimentoConjuge = "29/08/1975";
+//        String nomeConjuge = "Ivaneide Maria de Sousa";
+//        String emailConjuge = "email@";
+//        String telefoneConjuge = "9999";
+//        String dataNascimento = "04/05/1966";
+//        String rua = "rua";
+//        String numero = "12";
+//        String bairro = "Nova Vida";
+//        String cidade = "Pombal";
+//        String cep = "58840000";
+//        String uf = "PB";
+//        String comunidade = "Nova Vida";
+//        String dataInicio = "01/01/2011";
+//        String email = "silvanio@";
+//        String estadoCivil = "casado";
+//        String nome = "Silvanio Santana de MEdeiros";
+//        String telefone = "96861464";
+//        
+//        Dizimista dizimista = new Dizimista();
+//        
+//        CadastraDizimista c = new CadastraDizimista();
+//        
+//        Conjuge conjuge = new Conjuge();
+//        conjuge.setDataCasamento(c.formataData(dataCasamento));
+//        conjuge.setDataNascimento(c.formataData(dataNascimentoConjuge));
+//        conjuge.setDizimista(dizimista);
+//        conjuge.setEmail(emailConjuge);
+//        conjuge.setEndereco(dizimista.getEndereco());
+//        conjuge.setEstadoCivil(dizimista.getEstadoCivil());
+//        conjuge.setNome(nomeConjuge);
+//        conjuge.setTelefone(telefoneConjuge);
+//        Endereco endereco = new Endereco();
+//        endereco.setBairro(bairro);
+//        endereco.setCep(cep);
+//        endereco.setCidade(cidade);
+//        endereco.setEstado(uf);
+//        endereco.setNumero(numero);
+//        endereco.setRua(rua);
+//        
+//        ParoquiaDao paroquiaDao = new ParoquiaDao();
+//        
+//        Paroquia paroquia = paroquiaDao.consultaParoquia();
+//        
+//        
+//        dizimista.setComunidade(comunidade);
+//        dizimista.setConjuge(conjuge);
+//        dizimista.setDataInicio(c.formataData(dataInicio));
+//        dizimista.setDataNascimento(c.formataData(dataNascimento));
+//        dizimista.setDizimo(null);
+//        dizimista.setEmail(email);
+//        dizimista.setEndereco(endereco);
+//        dizimista.setEstadoCivil(estadoCivil);
+//        dizimista.setNome(nome);
+//        dizimista.setParoquia(paroquia);
+//        dizimista.setTelefone(telefone);
+//        
+//        DizimistaDao dizimistaDao = new DizimistaDao();
+//        dizimistaDao.persisteDizimista(dizimista);
+      
+        
+//        DizimistaDao dizimistaDao = new DizimistaDao();
+//        System.out.println(dizimistaDao.consultaDizimistaPorNome("Ernaldo JosÃ© de Sousa").size());
+        
+//        EntityManager em = Conexao.manager;
+//        em.getTransaction().begin();
+//        dizimista.setSecretarioCadastrante(em.find(Secretario.class, 2801L));
+//        em.persist(dizimista);
+//        em.getTransaction().commit();
+        
+        SecretarioDao dao = new SecretarioDao();
+         try {
+             dao.cadastraUsuario(new Secretario());
+//        System.out.println(dao.buscaSecretario(1L));
+         } catch (Exception ex) {
+             
+             System.out.println("Exception");
+             System.out.println(ex.getStackTrace().toString());
+         }
         
         System.out.println("finalizado com a graça de Deus.");
     }
+    
 }

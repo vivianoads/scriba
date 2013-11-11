@@ -7,7 +7,6 @@
 package br.com.soid.viviano.scriba.dao;
 
 import br.com.soid.viviano.scriba.conexao.Conexao;
-import br.com.soid.viviano.scriba.entidades.AgentePastoralDizimo;
 import br.com.soid.viviano.scriba.entidades.Secretario;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -26,9 +25,29 @@ public class SecretarioDao {
         query.setParameter("login", login);
         query.setParameter("senha", senha);
         try{
+            
             secretario = (Secretario) query.getSingleResult();
         }catch(Exception e){
+            System.out.println("entrou na exception");
         }
         return secretario;
+     }
+     
+     public Secretario cadastraUsuario(Secretario secretario)throws Exception{
+         entityManager.getTransaction().begin();
+         entityManager.persist(secretario);
+         entityManager.getTransaction().commit();
+         return this.buscaSecretario(secretario.getId());
+     }
+     
+     public Secretario buscaSecretario(Long id){
+         
+         Secretario secretario = null;
+         
+         entityManager.getTransaction().begin();
+         secretario = entityManager.find(Secretario.class, id);
+         entityManager.getTransaction().commit();
+         
+         return secretario;
      }
 }

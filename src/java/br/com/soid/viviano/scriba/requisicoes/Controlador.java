@@ -23,6 +23,9 @@ public class Controlador {
         requisicoes = new HashMap<String, IRequisicao>();
         
         requisicoes.put("login", new Login());
+        requisicoes.put("cadastrar_dizimista", new CadastraDizimista());
+        requisicoes.put("cancelar_cadastrar_usuario", new CancelarCadastroUsuario());
+        requisicoes.put("cadastrar_usuario", new CadastrarUsuario());
     }
     public static Controlador getControlador(){
         if (controlador == null){

@@ -8,8 +8,12 @@ package br.com.soid.viviano.scriba.entidades;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -19,6 +23,10 @@ import javax.persistence.Temporal;
  * @author viviano
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Dizimista.buscapornumero", query = "SELECT d FROM Dizimista d WHERE d.numero LIKE :numero"),
+    @NamedQuery(name = "Dizimista.buscapornome", query = "SELECT d FROM Dizimista d WHERE d.nome LIKE :nome")    
+})
 public class Dizimista extends Pessoa{
     
     private static final String tipo = "dizimista";
@@ -26,44 +34,37 @@ public class Dizimista extends Pessoa{
     public static String getTipo() {
         return tipo;
     }
+    private int numero;
     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicio;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Conjuge conjuge;
-    
-    @OneToMany
-    private List<Filho> filho;
-    
-    @ManyToOne
+        
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Paroquia paroquia;
-
-    @ManyToOne
-    private AgentePastoralDizimo agentePastoralDizimoCadastrante;
-
+    
     @ManyToOne
     private Secretario secretarioCadastrante;
-
-    
     
     @OneToMany(mappedBy = "dizimista")
     private List<Dizimo> dizimo;
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    
     public List<Dizimo> getDizimo() {
         return dizimo;
     }
 
     public void setDizimo(List<Dizimo> dizimo) {
         this.dizimo = dizimo;
-    }
-    
-    public AgentePastoralDizimo getAgentePastoralDizimoCadastrante() {
-        return agentePastoralDizimoCadastrante;
-    }
-
-    public void setAgentePastoralDizimoCadastrante(AgentePastoralDizimo agentePastoralDizimoCadastrante) {
-        this.agentePastoralDizimoCadastrante = agentePastoralDizimoCadastrante;
     }
 
     public Secretario getSecretarioCadastrante() {
@@ -90,18 +91,6 @@ public class Dizimista extends Pessoa{
     public void setConjuge(Conjuge conjuge) {
         this.conjuge = conjuge;
     }
-
-    public List<Filho> getFilho() {
-        return filho;
-    }
-
-    public void setFilho(List<Filho> filho) {
-        this.filho = filho;
-    }
-
-    
-    
-    
     
     public Date getDataInicio() {
         return dataInicio;

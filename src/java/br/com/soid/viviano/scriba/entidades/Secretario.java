@@ -21,8 +21,9 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(name = "Secretario.logar", query = "SELECT sec FROM Secretario sec WHERE sec.login LIKE :login AND sec.senha LIKE :senha")
 })
-public class Secretario extends Pessoa implements Usuario{
-    private static final String tipo = "secretario";
+public class Secretario extends Pessoa{
+    
+    private String tipo;
     
     @Column(nullable = false, unique = true)
     private String login;
@@ -32,8 +33,11 @@ public class Secretario extends Pessoa implements Usuario{
     @OneToMany
     private List<Dizimo> dizimos;
 
-    public static String getTipo() {
+    public String getTipo() {
         return tipo;
+    }
+    public void setTipo(String tipo){
+        this.tipo = tipo;
     }
 
     public String getLogin() {
@@ -60,12 +64,6 @@ public class Secretario extends Pessoa implements Usuario{
 
     public void setDizimos(List<Dizimo> dizimos) {
         this.dizimos = dizimos;
-    }
-
-    @Override
-    public String tipo() {
-        return "Secretario";
-    }
-    
+    }   
     
 }
