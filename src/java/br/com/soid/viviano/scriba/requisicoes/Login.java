@@ -7,6 +7,7 @@
 package br.com.soid.viviano.scriba.requisicoes;
 
 import br.com.soid.viviano.scriba.dao.SecretarioDao;
+import br.com.soid.viviano.scriba.entidades.Pessoa;
 import br.com.soid.viviano.scriba.entidades.Secretario;
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +22,7 @@ public class Login implements IRequisicao{
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String retorno = new String();
-        Secretario u = null;
+        Pessoa u = null;
         
         SecretarioDao sd = new SecretarioDao();
         

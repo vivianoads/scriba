@@ -330,6 +330,11 @@ public class Teste {
 //        System.out.println(dao.buscaSecretario(1L));
          } catch (Exception ex) {
              
+             EntityManager em = Conexao.manager;
+             
+             em.getTransaction().begin();
+             em.getTransaction().commit();
+             
              System.out.println("Exception");
              System.out.println(ex.getStackTrace().toString());
          }

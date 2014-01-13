@@ -26,6 +26,10 @@ public class Controlador {
         requisicoes.put("cadastrar_dizimista", new CadastraDizimista());
         requisicoes.put("cancelar_cadastrar_usuario", new CancelarCadastroUsuario());
         requisicoes.put("cadastrar_usuario", new CadastrarUsuario());
+        requisicoes.put("confirmar_usuario", new ConfirmarCadastrarUsuario());
+        requisicoes.put("cadastrar_novo", new RetornaCadastroUsuario());
+        requisicoes.put("retornar_pagina_secretario", new RetornaPaginaSecretario());
+        requisicoes.put("secretario_cadastrar_novo_usuario", new AbrirPaginaFormularioCadastroUsuario());
     }
     public static Controlador getControlador(){
         if (controlador == null){

@@ -27,61 +27,79 @@ body{
     border-bottom-color: black;
 }
 
-#bloco_conteudo_pagina{
-    width: 90%;
-    height: 69.5%;
-    background-color: transparent;
+#logo{
+    width: 18%;
+    height: 9%;
+    background-color: white;
+    border: 1px;
+    border-color: black;
+    margin-top: 3%;
     margin-left: 10%;
-    margin-top: 13%;
     position: absolute;
+}
+
+#conteudo_logo{
+    width: 100%;
+    height: 100%;
+    margin-left: 10%;
+    position: absolute;
+}
+
+#bloco_form_login{
+    width: 30%;
+    height: 30%;
+    margin-top: 20%;
+    margin-left: 35%;
+    position: absolute;
+    background-color: transparent;
+    border-style: solid;
+    border-width: medium;
+}
+
+#conteudo_bloco_form_login{
+    width: 95%;
+    height: 90%;
+    position: absolute;
+    font:bold 14px Tahoma, Geneva, sans-serif;
+    font-style:normal;
+    margin-top: 5%;
+    margin-left: 0%;
+    text-align: center;
+    background-color: transparent;
+}
+
+#botao_cancelar{
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    position: absolute;
+    margin-top: 24.7%;
     
 }
 
-#conteudo_bloco_conteudo_pagina{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    position: absolute;
+.i2Style_cancelar{
+font:bold 14px Tahoma, Geneva, sans-serif;
+font-style:normal;
+color:#ffffff;
+background:#CC3300;
+border:0px solid #ffffff;
+text-shadow:0px -1px 1px #222222;
+box-shadow:2px 2px 5px #000000;
+-moz-box-shadow:2px 2px 5px #000000;
+-webkit-box-shadow:2px 2px 5px #000000;
+border-radius:2px 2px 2px 2px;
+-moz-border-radius:2px 2px 2px 2px;
+-webkit-border-radius:2px 2px 2px 2px;
+width:124px;
+padding:8px 11px;
+cursor:pointer;
+margin:0 auto;
+margin-left: 7%;
 }
-
-#menu{
-    width: 20%;
-    height: 100%;
-    background-color: transparent;
-    position: absolute;
-}
-#conteudo_menu{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-}
-
-#boas_vindas{
-    width: 50%;
-    height: 50%;
-    margin-left: 35%;
-    margin-top: 5%;
-    text-align: center;
-    position: absolute;
-    background-color: transparent;
-}
-
-#linha{
-    width: 100%;
-    height: 5%;
-    background-color: transparent;
-    margin-bottom: 4%;
-}
-
-#titulo_pagina{
-    font:bold 14px Tahoma, Geneva, sans-serif;
-    text-align: center;
-    width: 60.5%;
-    height: 4%;
-    margin-top: 11%;
-    background-color: transparent;
-    position: absolute;
-    margin-left: 25%;
+.i2Style_cancelar:active{
+cursor:pointer;
+position:relative;
+top:2px;
 }
 
 .i2Style{
@@ -97,11 +115,11 @@ box-shadow:2px 2px 5px #000000;
 border-radius:2px 2px 2px 2px;
 -moz-border-radius:2px 2px 2px 2px;
 -webkit-border-radius:2px 2px 2px 2px;
-width:84px;
+width:124px;
 padding:8px 11px;
 cursor:pointer;
 margin:0 auto;
-margin-left: 25%;
+margin-left: 50%;
 }
 .i2Style:active{
 cursor:pointer;
@@ -111,30 +129,6 @@ top:2px;
 
 .inputtext{
     border-style:inset;
-    border-width:2;
+    border-width:2px;
     border-color:black;
-}
-
-.i2Style_button_menu{
-font:bold 14px Tahoma, Geneva, sans-serif;
-font-style:normal;
-color:#000000;
-background:#eaeaea;
-border:2px hidden #ffffff;
-text-shadow:0px 0px 0px #f05be6;
-box-shadow:-1px 1px 13px #000000;
--moz-box-shadow:-1px 1px 13px #000000;
--webkit-box-shadow:-1px 1px 13px #000000;
-border-radius:0px 0px 0px 0px;
--moz-border-radius:0px 0px 0px 0px;
--webkit-border-radius:0px 0px 0px 0px;
-width:170px;
-padding:3px 3px;
-cursor:pointer;
-margin:0 auto;
-}
-.i2Style_button_menu:active{
-cursor:pointer;
-position:relative;
-top:2px;
 }

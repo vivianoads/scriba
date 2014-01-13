@@ -14,11 +14,11 @@ import java.util.Date;
  * @author viviano
  */
 public class Util {
-    public Date formataData(String texto){
-        String[] vetor = texto.split("/");
+    public Calendar formataData(String texto){
+        String[] vetor = texto.split("-");
         Calendar c = Calendar.getInstance();
-        c.set(Integer.parseInt(vetor[0]), Integer.parseInt(vetor[2]), Integer.parseInt(vetor[1]));
-        return c.getTime();
+        c.set(Integer.parseInt(vetor[0]), Integer.parseInt(vetor[1]), Integer.parseInt(vetor[2]));
+        return c;
     }
     
 }

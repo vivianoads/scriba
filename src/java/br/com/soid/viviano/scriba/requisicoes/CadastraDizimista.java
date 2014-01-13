@@ -86,12 +86,12 @@ public class CadastraDizimista implements IRequisicao{
             conjuge.setEndereco(dizimista.getEndereco());
             conjuge.setEstadoCivil(dizimista.getEstadoCivil());
             conjuge.setNome(nomeConjuge);
-            conjuge.setTelefone(telefoneConjuge);
+            conjuge.setTelefone1(telefoneConjuge);
             dizimista.setConjuge(conjuge);
         }    
         dizimista.setNome(nome);
         dizimista.setParoquia(paroquia);
-        dizimista.setTelefone(telefone);
+        dizimista.setTelefone1(telefone);
         
         DizimistaDao dizimistaDao = new DizimistaDao();
         dizimistaDao.persisteDizimista(dizimista);

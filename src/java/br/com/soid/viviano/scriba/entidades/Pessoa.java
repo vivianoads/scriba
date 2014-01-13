@@ -7,6 +7,7 @@
 package br.com.soid.viviano.scriba.entidades;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
@@ -37,13 +38,16 @@ public class Pessoa implements Serializable {
     
     private String nome;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dataNascimento;
+    private Calendar dataNascimento;
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
     private String estadoCivil;
     private String email;
-    private String telefone;
+    private String telefone1;
+    private String telefone2;
     private String comunidade;
+    private String atividade;
+    private String motivoInatividade;
 
     public Long getId() {
         return id;
@@ -61,11 +65,11 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public Calendar getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -93,14 +97,23 @@ public class Pessoa implements Serializable {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelefone1() {
+        return telefone1;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
     }
 
+    public String getTelefone2() {
+        return telefone2;
+    }
+
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+
+    
     public String getComunidade() {
         return comunidade;
     }
@@ -109,6 +122,23 @@ public class Pessoa implements Serializable {
         this.comunidade = comunidade;
     }
 
+    public String getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(String atividade) {
+        this.atividade = atividade;
+    }
+
+    public String getMotivoInatividade() {
+        return motivoInatividade;
+    }
+
+    public void setMotivoInatividade(String motivoInatividade) {
+        this.motivoInatividade = motivoInatividade;
+    }
+
+    
     
     
     @Override
