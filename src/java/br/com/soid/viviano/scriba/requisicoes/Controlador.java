@@ -31,6 +31,7 @@ public class Controlador {
         requisicoes.put("retornar_pagina_secretario", new RetornaPaginaSecretario());
         requisicoes.put("secretario_cadastrar_novo_usuario", new AbrirPaginaFormularioCadastroUsuario());
         requisicoes.put("alterar_dados_usuario", new AlterarDadosCadastroUsuario());
+        requisicoes.put("secretario_consultar_usuario", new IrFormularioConsultaUsuarios());
     }
     public static Controlador getControlador(){
         if (controlador == null){
