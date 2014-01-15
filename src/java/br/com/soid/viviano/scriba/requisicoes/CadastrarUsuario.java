@@ -19,16 +19,16 @@ public class CadastrarUsuario implements IRequisicao{
 
     @Override
     public String requisicao(HttpServletRequest request) {
-        String retorno = "confirma_cadastro_usuario.jsp";
-        SecretarioDao secretarioDao = new SecretarioDao();
-        
-        try {
-            secretarioDao.cadastraUsuario((Secretario) request.getSession().getAttribute("usuario_cadastrar"));
-        } catch (Exception ex) {
-            System.out.println("ERRO");
-            retorno = "erro.html";
-        }
-        
+        String retorno = "secretario.html";
+//        SecretarioDao secretarioDao = new SecretarioDao();
+//        
+//        try {
+//            secretarioDao.cadastraUsuario((Secretario) request.getSession().getAttribute("usuario_cadastrar"));
+//        } catch (Exception ex) {
+//            System.out.println("ERRO");
+//            retorno = "erro.html";
+//        }
+        request.getSession().removeAttribute("usuario_cadastrar");
         return retorno;
     }
     

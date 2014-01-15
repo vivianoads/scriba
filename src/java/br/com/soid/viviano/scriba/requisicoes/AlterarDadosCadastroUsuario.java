@@ -14,14 +14,17 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author viviano
  */
-public class CancelarCadastroUsuario implements IRequisicao{
+public class AlterarDadosCadastroUsuario implements IRequisicao{
 
     @Override
     public String requisicao(HttpServletRequest request) {
+        request.getSession().setAttribute("opcao", "alterar");
         Secretario secretario = (Secretario) request.getSession().getAttribute("usuario_cadastrar");
-        new SecretarioDao().apagaSecretario(secretario.getId());
-        request.getSession().removeAttribute("usuario_cadastrar");
-        String retorno = "secretario.html";
+        secretario = new SecretarioDao().atualizaSecretario(secretario.getId());
+        
+        request.getSession().setAttribute("usuario_cadastrar", secretario);
+        
+        String retorno = "secretario_form_cadastro_usuario.jsp";
         return retorno;
     }
     

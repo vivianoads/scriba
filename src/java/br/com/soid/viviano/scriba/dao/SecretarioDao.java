@@ -28,7 +28,7 @@ public class SecretarioDao {
             
             secretario = (Secretario) query.getSingleResult();
         }catch(Exception e){
-            System.out.println("entrou na exception");
+//            System.out.println("entrou na exception");
         }
         return secretario;
      }
@@ -49,5 +49,26 @@ public class SecretarioDao {
          entityManager.getTransaction().commit();
          
          return secretario;
+     }
+     
+     public void apagaSecretario(Long id){
+         entityManager.getTransaction().begin();
+         Secretario secretario = entityManager.find(Secretario.class, id);
+         entityManager.remove(secretario);
+         entityManager.getTransaction().commit();
+     }
+     
+     public Secretario atualizaSecretario(Long id){
+         entityManager.getTransaction().begin();
+         Secretario secretario = entityManager.find(Secretario.class, id);
+         entityManager.refresh(secretario);
+         entityManager.getTransaction().commit();
+         return secretario;
+     }
+     
+     public void alterarUsuario(Secretario secretario){
+         entityManager.getTransaction().begin();
+         entityManager.merge(secretario);
+         entityManager.getTransaction().commit();
      }
 }

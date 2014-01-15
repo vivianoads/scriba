@@ -6,6 +6,7 @@
 
 package br.com.soid.viviano.scriba.servlet;
 
+import br.com.soid.viviano.scriba.entidades.Secretario;
 import br.com.soid.viviano.scriba.requisicoes.Controlador;
 import br.com.soid.viviano.scriba.requisicoes.IRequisicao;
 import java.io.IOException;
@@ -35,13 +36,22 @@ public class Acesso extends HttpServlet {
         String acao = request.getParameter("acao");
         
         Controlador.getControlador();
+        String proximaPagina = "";
+        Secretario secretario = null;
+        secretario = (Secretario) request.getSession().getAttribute("usuario_logado");
         
         IRequisicao requisicao = Controlador.getRequisicao(acao);
         
-        String proximaPagina = requisicao.requisicao(request);
+        if((!acao.equals("login"))&&(secretario == null)){
+            proximaPagina = "";
+        }else{
+            proximaPagina = requisicao.requisicao(request);
+        }
         
-        RequestDispatcher rd = request.getRequestDispatcher(proximaPagina);
-        rd.forward(request, response);
+//        RequestDispatcher rd = request.getRequestDispatcher(proximaPagina);
+//        rd.forward(request, response);
+        response.sendRedirect(proximaPagina);
+//        request.getSession().invalidate();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -67,7 +67,7 @@ public class CadastraDizimista implements IRequisicao{
         dizimista.setSecretarioCadastrante(secretario);
         dizimista.setComunidade(comunidade);
         
-        dizimista.setDataInicio(util.formataData(dataInicio));
+//       ERROS HERE-- dizimista.setDataInicio(util.formataData(dataInicio));
         dizimista.setDataNascimento(util.formataData(dataNascimento));
         dizimista.setDizimo(null);
         dizimista.setEmail(email);
@@ -79,7 +79,7 @@ public class CadastraDizimista implements IRequisicao{
             if((dataCasamento.isEmpty()) || (dataNascimentoConjuge.isEmpty())||(nomeConjuge.isEmpty())) retorno = "#";
             
             Conjuge conjuge = new Conjuge();
-            conjuge.setDataCasamento(util.formataData(dataCasamento));
+//          SAME ERROR HERE TOO ---  conjuge.setDataCasamento(util.formataData(dataCasamento));
             conjuge.setDataNascimento(util.formataData(dataNascimentoConjuge));
             conjuge.setDizimista(dizimista);
             conjuge.setEmail(emailConjuge);

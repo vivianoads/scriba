@@ -20,8 +20,9 @@
                 <div id="barra_topo">
                     <img src="scriba_barra_logo.png">
                 </div>
+                
                 <div id="titulo_pagina">
-                    Cadastro de Usuários do Sistema
+                    Usuário Cadastrado com Sucesso. Confirme os dados! Usuario: ${usuario_logado.login}
                 </div>
                 <div id="bloco_form_cadastro_usuario">
                     <div id="conteudo_bloco_form_cadastro_usuario">
@@ -72,14 +73,7 @@
                                 Tipo de Usuário:
                             </div>
                         </div>
-                        <div id="form_dir">
-                            <div id="botao_cancelar">
-                                <form name="cancelar_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="cancelar_cadastrar_usuario">
-                                    <button class="i2Style_cancelar">Cancelar</button>
-                                </form>
-                            </div>
-                            
+                        <div id="form_dir">      
                             <div id="linha">
                                 ${usuario_cadastrar.login}
                             </div>
@@ -125,12 +119,26 @@
                             <div id="linha">
                                 ${usuario_cadastrar.tipo}
                             </div>
-                            <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                <input type="hidden" name="acao" value="cadastrar_usuario">
-                                <br/>
-                                <br/>
-                                <button class="i2Style">Salvar</button>
-                            </form>
+                        </div>
+                        <div id="botoes">
+                            <div id="botao_esq">
+                                <form name="cancelar_cadastro_usuario" action="Acesso" method="post">
+                                    <input type="hidden" name="acao" value="cancelar_cadastrar_usuario">
+                                    <button class="i2Style_cancelar">Cancelar</button>
+                                </form>
+                            </div>
+                            <div id="botao_meio">
+                                <form name="formulario_cadastro_usuario" action="Acesso" method="post">
+                                    <input type="hidden" name="acao" value="alterar_dados_usuario">
+                                    <button class="i2Style_alterar">Alterar</button>
+                                </form>
+                            </div>
+                            <div id="botao_dir">
+                                <form name="formulario_cadastro_usuario" action="Acesso" method="post">
+                                    <input type="hidden" name="acao" value="cadastrar_usuario">
+                                    <button class="i2Style">Confirmar</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

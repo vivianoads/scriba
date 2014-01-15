@@ -16,7 +16,7 @@ public class AbrirPaginaFormularioCadastroUsuario implements IRequisicao{
 
     @Override
     public String requisicao(HttpServletRequest request) {
-       return "secretario_cadastro_usuario.html";
+       return "secretario_form_cadastro_usuario.jsp";
     }
     
 }

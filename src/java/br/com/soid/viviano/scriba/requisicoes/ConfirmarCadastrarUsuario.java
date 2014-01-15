@@ -61,9 +61,24 @@ public class ConfirmarCadastrarUsuario implements IRequisicao{
         s.setTelefone1(telefone);
         s.setTipo(tipo);
         
-        request.getSession().setAttribute("usuario_cadastrar", s);
+        String opcao = (String) request.getSession().getAttribute("opcao");
         
-//        SecretarioDao secretarioDao = new SecretarioDao();
+        SecretarioDao secretarioDao = new SecretarioDao();
+        try {
+            if(opcao == null){
+                secretarioDao.cadastraUsuario(s);
+                
+            }else{
+                Secretario secretario = (Secretario) request.getSession().getAttribute("usuario_cadastrar");
+                s.setId(secretario.getId());
+                secretarioDao.alterarUsuario(s);
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ConfirmarCadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        request.getSession().setAttribute("usuario_cadastrar", s);
 //        try {
 //            request.setAttribute("usuario_cadastrado", secretarioDao.cadastraUsuario(s));
 //        } catch (Exception ex) {

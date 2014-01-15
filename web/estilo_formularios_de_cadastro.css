@@ -15,15 +15,17 @@ body{
 
 #container{
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: transparent;
+    overflow-y: scroll;
 }
 
 #conteudo_container{
     width: 100%;
-    height: 100%;
+     min-height: 100%;
     background-color: transparent;
     position: absolute;
+    overflow: scroll;
 }
 
 #barra_topo{
@@ -67,12 +69,13 @@ body{
 }
 
 #conteudo_bloco_form_cadastro_usuario{
+    background-color: transparent;
     width: 90%;
     height: 90%;
     position: absolute;
     font:bold 14px Tahoma, Geneva, sans-serif;
     font-style:normal;
-    margin-top: 7%;
+    margin-top: 6.5%;
     margin-left: 2%;
 }
 
@@ -111,10 +114,10 @@ body{
     margin-left: 25%;
 }
 
-#botao_cancelar{
+#botoes{
     width: 20%;
     height: 10%;
-    background-color: transparent;
+    background-color: red;
     margin-top: 67.7%;
     margin-left: 0%;
     
