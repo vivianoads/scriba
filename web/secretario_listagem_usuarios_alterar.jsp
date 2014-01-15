@@ -22,7 +22,7 @@
                 </div>
                 
                 <div id="titulo_pagina">
-                    Usuário Cadastrado com Sucesso. Confirme os dados! Usuario: ${usuario_logado.login}
+                    Listar Usuário Cadastrados para Alterar
                 </div>
                 <div id="bloco_form_cadastro_usuario">
                     <div id="conteudo_bloco_form_cadastro_usuario">

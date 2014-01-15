@@ -8,6 +8,7 @@ package br.com.soid.viviano.scriba.dao;
 
 import br.com.soid.viviano.scriba.conexao.Conexao;
 import br.com.soid.viviano.scriba.entidades.Secretario;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -70,5 +71,22 @@ public class SecretarioDao {
          entityManager.getTransaction().begin();
          entityManager.merge(secretario);
          entityManager.getTransaction().commit();
+     }
+     
+     public List<Secretario> buscaTodosSecretarios(){
+         Query query = entityManager.createNamedQuery("Secretario.ListaTodos");
+         return query.getResultList();
+     }
+     
+     public List<Secretario> buscaSecretariosTipo(String tipo){
+         Query query = entityManager.createNamedQuery("secretario.listaSecretarios");
+         query.setParameter("tipo", tipo);
+         return query.getResultList();
+     }
+     
+     public List<Secretario> buscaSecretariosPorNome(String nome){
+         Query query = entityManager.createNamedQuery("secretario.listaPorNome");
+         query.setParameter("nome", "%"+nome.toUpperCase()+"%");
+         return query.getResultList();
      }
 }

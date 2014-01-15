@@ -51,28 +51,34 @@ and open the template in the editor.
                             <div id="linha">
                                 <form name="formulario_cadastro_usuario" action="Acesso" method="post">
                                     <input type="hidden" name="acao" value="secretario_consultar_todos_usuarios">
+                                    <input type="hidden" name="tipo_consulta" value="1">
                                     <button class="i2Style">Buscar</button>
                                 </form>
                             </div>
                             <br/>
                             <div id="linha">
                                 <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="secretario_consultar_todos_secretarios">
+                                    <input type="hidden" name="acao" value="secretario_consultar_todos_usuarios">
+                                    <input type="hidden" name="tipo_consulta" value="2">
+                                    <input type="hidden" name="tipo_secretario" value="secretario">
                                     <button class="i2Style">Buscar</button>
                                 </form>
                             </div>
                             <br/>
                             <div id="linha">
                                 <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="secretario_consultar_todos_agentes">
+                                    <input type="hidden" name="acao" value="secretario_consultar_todos_usuarios">
+                                    <input type="hidden" name="tipo_consulta" value="2">
+                                    <input type="hidden" name="tipo_secretario" value="agente">
                                     <button class="i2Style">Buscar</button>
                                 </form>
                             </div>
                             <br/>
                             <div id="linha">
                                 <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="secretario_consultar_todos_agentes">
-                                    <input class="inputtext" type="text" name="nome_buscar" size="40">
+                                    <input type="hidden" name="acao" value="secretario_consultar_todos_usuarios">
+                                    <input type="hidden" name="tipo_consulta" value="3">
+                                    <input class="inputtext" type="text" name="nome_consulta" size="40">
                                     <button class="i2Style">Buscar</button>
                                 </form>
                             </div>

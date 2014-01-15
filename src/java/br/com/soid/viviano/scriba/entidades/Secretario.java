@@ -19,7 +19,10 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Secretario.logar", query = "SELECT sec FROM Secretario sec WHERE sec.login LIKE :login AND sec.senha LIKE :senha")
+    @NamedQuery(name = "Secretario.logar", query = "SELECT sec FROM Secretario sec WHERE sec.login LIKE :login AND sec.senha LIKE :senha"),
+    @NamedQuery(name = "Secretario.ListaTodos", query = "SELECT s FROM  Secretario s"),
+    @NamedQuery(name = "secretario.listaSecretarios", query = "SELECT s FROM  Secretario s WHERE s.tipo LIKE :tipo"),
+    @NamedQuery(name = "secretario.listaPorNome", query = "SELECT s FROM Secretario s WHERE UPPER(s.nome) LIKE :nome")
 })
 public class Secretario extends Pessoa{
     

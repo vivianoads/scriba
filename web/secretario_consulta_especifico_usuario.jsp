@@ -12,26 +12,36 @@
         <title>:.SCRIBA.:</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="estilo_secretario_confirma_cadastro_usuario_html.css">
+        <link rel="stylesheet" type="text/css" href="estilo_secretario_consulta_especifico_usuario.css">
     </head>
     <body>
         <div id="container">
             <div id="conteudo_container">
                 <div id="barra_topo">
-                    <img src="scriba_barra_logo.png">
+                    <img src="scriba_barra_logo_impressao.png">
                 </div>
-                
+                <br/>
+                <br/>
                 <div id="titulo_pagina">
-                    Usuário Cadastrado com Sucesso. Confirme os dados! Usuario: ${usuario_logado.login}
+                    <div id="botao_voltar">
+                        <form name="cancelar_cadastro_usuario" action="Acesso" method="post">
+                            <input type="hidden" name="acao" value="voltar_formulario_consulta_usuario">
+                            <button class="i2Style_cancelar">Menu</button>
+                        </form>
+                    </div>
+                    <div id="titulo">
+                        Lista de Usuários
+                    </div>
+                    <div id="botao_imprimir">
+                            <button onClick="javascript:window.print()" class="i2Style_cancelar">Imprimir</button>
+                    </div>
                 </div>
+                <br/>
                 <div id="bloco_form_cadastro_usuario">
                     <div id="conteudo_bloco_form_cadastro_usuario">
                         <div id="form_esq">
                             <div id="linha">
                                 Login:
-                            </div>
-                            <div id="linha">
-                                Senha:
                             </div>
                             <div id="linha">
                                 Nome:
@@ -75,71 +85,62 @@
                         </div>
                         <div id="form_dir">      
                             <div id="linha">
-                                ${usuario_cadastrar.login}
+                                ${usuario_especifico.login}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.senha}
+                                ${usuario_especifico.nome}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.nome}
+                                ${usuario_especifico.estadoCivil}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.estadoCivil}
+                                ${usuario_especifico.dataNascimento}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.dataNascimento}
+                                ${usuario_especifico.endereco.rua}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.rua}
+                                ${usuario_especifico.endereco.numero}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.numero}
+                                ${usuario_especifico.endereco.bairro}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.bairro}
+                                ${usuario_especifico.endereco.cidade}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.cidade}
+                                ${usuario_especifico.endereco.cep}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.cep}
+                                ${usuario_especifico.endereco.estado}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.endereco.estado}
+                                ${usuario_especifico.email}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.email}
+                                ${usuario_especifico.telefone1}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.telefone1}
+                                ${usuario_especifico.comunidade}
                             </div>
                             <div id="linha">
-                                ${usuario_cadastrar.comunidade}
-                            </div>
-                            <div id="linha">
-                                ${usuario_cadastrar.tipo}
+                                ${usuario_especifico.tipo}
                             </div>
                         </div>
-                        <div id="botoes">
-                            <div id="botao_esq">
-                                <form name="cancelar_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="cancelar_cadastrar_usuario">
-                                    <button class="i2Style_cancelar">Cancelar</button>
-                                </form>
-                            </div>
-                            <div id="botao_meio">
-                                <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="alterar_dados_usuario">
-                                    <button class="i2Style_alterar">Alterar</button>
-                                </form>
-                            </div>
-                            <div id="botao_dir">
-                                <form name="formulario_cadastro_usuario" action="Acesso" method="post">
-                                    <input type="hidden" name="acao" value="cadastrar_usuario">
-                                    <button class="i2Style">Confirmar</button>
-                                </form>
-                            </div>
-                        </div>
+                        <//c:forEach items="${list_usuarios}" var="item">
+<!--                            <div id="linha">
+                                <div id="form_esq">
+                                    ${item.nome}
+                                </div>
+                                <div id="form_dir">
+                                    <form name="cancelar_cadastro_usuario" action="Acesso" method="post">
+                                        <input type="hidden" name="acao" value="detalhes_usuario">
+                                        <input type="hidden" name="id_usuario" value="${item.id}">
+                                        <button class="i2Style_cancelar">Detalhes</button>
+                                    </form>
+                                </div>
+                            </div>-->
+                        <//c:forEach>
                     </div>
                 </div>
             </div>
